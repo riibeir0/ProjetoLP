@@ -5,6 +5,7 @@
  */
 package projetolp;
 
+import com.br.lp.PostGraduateStudent;
 import com.br.lp.Student;
 import com.br.lp.University;
 
@@ -22,10 +23,6 @@ public class ProjetoLP {
         Student a = new Student(b, "Gabriel", "Rua dos bobos N°0", "666", "gabriel@gmail.com");
         Student c = new Student(b, "Paulo", "Rua dos bobos N°0", "666", "gabriel@gmail.com");
         
-        System.out.println(c.getId());
-        System.out.println(c.getAddress());
-        System.out.println(a.getAddress());
-        
         a.setId(31462669l);
         System.out.println(a.getId());
         
@@ -35,6 +32,10 @@ public class ProjetoLP {
         
         System.out.println(a.toString());
         System.out.println(c.toString());
+        
+        Student alunopos = new PostGraduateStudent (41331467l, "Renata", "Rua da salvação", "43111779", "renatacantarin@hotmail.com", "The Maine", "Gabriel");
+        System.out.println(alunopos.toString());
+        System.out.println(alunopos.getName());
         
         
     }

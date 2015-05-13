@@ -35,5 +35,9 @@ public class PostGraduateStudent extends Student{
         this.supervisor = supervisor;
     }
     
+    @Override
+    public String toString() {
+        return super.toString()+"thesisTitle = " + thesisTitle + "\n Supervisor = " + supervisor;
+    }
     
 }
