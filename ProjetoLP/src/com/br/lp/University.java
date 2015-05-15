@@ -22,7 +22,7 @@ public class University {
         this.name = name;
     }
     
-    public void addCourse(String code, String title, int numCredits, int maxStudents) throws Exception{
+    public Course addCourse(String code, String title, int numCredits, int maxStudents) throws Exception{
         Course a = new Course(code, title, numCredits, maxStudents);
         for (Course cursoExistente : courses) { //compara o curso com o existente
             if(a.getTitle().equals(cursoExistente.getTitle())){
@@ -30,10 +30,10 @@ public class University {
             } else{
                 courses.add(a);
             }
-        }
-    } //AVISAR A PROFESSORA DO TIPO DE RETORNO, NÃO FAZ SENTIDO RETORNAR O CURSO QUE ESTÁ SENDO ADICIONADO!!!!111
+        } return a; 
+    } 
     
-    public boolean updateCourse(String code, String title, int numCredits, int maxStudents) throws Exception{
+    public ArrayList<Course> updateCourse(String code, String title, int numCredits, int maxStudents) throws Exception{
         boolean flag = false;
         for (Course course : courses) {
             if(course.getTitle().equals(title)){
@@ -43,14 +43,20 @@ public class University {
                 flag = true;
             }
         }
-        if(flag){
-            return true;
-        } else{
-            return false;
-        }
-        
-    } //AVISAR A PROFESSORA DO TIPO DE RETORNO, DEVERIA SER BOOLEAN
+       
+        return courses ;
+    } 
     
+    public Student UnderGraduateStudent (Long id, String name, String address, String phone, String email, String major, String minor) {
+        Student a = new Student(code, title, numCredits, maxStudents);
+        for (Student alunoUnderExistente : students) { //compara os estudantes com o existente
+            if(a.getTitle().equals(cursoExistente.getTitle())){
+                throw new Exception("Curso já existe!");
+            } else{
+                courses.add(a);
+            }
+        } return a; 
+    }
     
-    
-}
+} //fim da classe university
+
