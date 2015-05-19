@@ -33,21 +33,23 @@ public class University {
         } return a; 
     } 
     
-    public ArrayList<Course> updateCourse(String code, String title, int numCredits, int maxStudents) throws Exception{
+    public Course updateCourse(String code, String title, int numCredits, int maxStudents) throws Exception{
         boolean flag = false;
-        for (Course course : courses) {
-            if(course.getTitle().equals(title)){
-                course.setCode(code);
-                course.setMaxStudents(maxStudents);
-                course.setNumCredits(numCredits);
+        Course curso = null;
+        for (int i = 0; i < courses.size(); i++) {
+            if(curso.getTitle().equals(title)){
+                curso.setCode(code);
+                curso.setMaxStudents(maxStudents);
+                curso.setNumCredits(numCredits);
                 flag = true;
-            }
+            } else
+            throw new Exception ("Curso não existe!");
         }
-       
-        return courses ;
+        
+        return curso;
     } 
     
-    public UnderGraduateStudent addUnderGraduateStudent (Long id, String name, String address, String phone, String email, String major, String minor)throws Exception {
+    public UnderGraduateStudent addUnderGraduateStudent (Long id, String name, String address, String phone, String email, String major, String minor) throws Exception {
         UnderGraduateStudent a = new UnderGraduateStudent(id, name, address, phone, email, major, minor);
             for (Student alunoEx : students){ //aluno existente
                 if(a.getId().equals(alunoEx.getId())){
@@ -59,5 +61,92 @@ public class University {
         return a; 
     }
     
+    public UnderGraduateStudent updateUnderGraduateStudent (Long id, String name, String address, String phone, String email, String major, String minor)throws Exception {
+        boolean flag = false;
+        UnderGraduateStudent estudante = null;
+        for (int i = 0; i < students.size(); i++) {
+            if(estudante.getId().equals(id)){
+                estudante.setId(id);
+                estudante.setName(name);
+                estudante.setAddress(address);
+                estudante.setPhone(phone);
+                estudante.setEmail(email);
+                estudante.setMajor(major);
+                estudante.setMinor(minor);
+                flag = true;
+            } else
+            throw new Exception ("Estudante não existe!");
+        }
+        
+        return estudante;  
+    }
+    
+    public PostGraduateStudent addPostGraduateStudent (Long id, String name, String address, String phone, String email, String thesisTitle, String supervisor) throws Exception {
+        PostGraduateStudent a = new PostGraduateStudent(id, name, address, phone, email, thesisTitle, supervisor);
+            for (Student alunoEx : students){ //aluno existente
+                if(a.getId().equals(alunoEx.getId())){
+                    throw new Exception("ALuno já existe");
+                } else{
+                    students.add(a);
+                }
+            }
+        return a; 
+    }
+    
+    public PostGraduateStudent updatePostGraduateStudent (Long id, String name, String address, String phone, String email, String ThesisTitle, String supervisor)throws Exception {
+        boolean flag = false;
+        PostGraduateStudent estudante = null;
+        for (int i = 0; i < students.size(); i++) {
+            if(estudante.getId().equals(id)){
+                estudante.setId(id);
+                estudante.setName(name);
+                estudante.setAddress(address);
+                estudante.setPhone(phone);
+                estudante.setEmail(email);
+                estudante.setThesisTitle(ThesisTitle);
+                estudante.setSupervisor(supervisor);
+                flag = true;
+            } else
+            throw new Exception ("Estudante não existe!");
+        }
+        
+        return estudante;  
+    }
+    
+    public Course getCourse(String code)throws Exception {
+        Course curso = null;
+        
+        for(int i = 0; i < courses.size(); i++) {
+            if(code.equals(courses.get(i).getCode())){
+                curso = courses.get(i);  
+            } else
+                throw new Exception("Esse curso não existe!");
+        }
+        return curso;
+    }
+    
+    public Student getStudent(Long id)throws Exception {
+        Student estudante = null;
+        
+        for(int i = 0; i < students.size(); i++){
+            if(id.equals(students.get(i).getId())){
+                estudante = students.get(i);
+            }
+        }
+        return estudante;
+    }
+    
+    public Courses getCourses(Long studentId)throws Exception { //não terminei de fazer
+        Courses cursos = null;
+        
+        for(int i = 0; i < courses.size(); i++){
+            if(studentId.equals(courses.get(i).getStudentId())){
+                cursos = 
+            }
+        }
+    }
+    
+    
+
 } //fim da classe university
 
