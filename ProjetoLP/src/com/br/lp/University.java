@@ -47,15 +47,16 @@ public class University {
         return courses ;
     } 
     
-    public Student UnderGraduateStudent (Long id, String name, String address, String phone, String email, String major, String minor) {
-        Student a = new Student(code, title, numCredits, maxStudents);
-        for (Student alunoUnderExistente : students) { //compara os estudantes com o existente
-            if(a.getTitle().equals(cursoExistente.getTitle())){
-                throw new Exception("Curso já existe!");
-            } else{
-                courses.add(a);
+    public UnderGraduateStudent addUnderGraduateStudent (Long id, String name, String address, String phone, String email, String major, String minor)throws Exception {
+        UnderGraduateStudent a = new UnderGraduateStudent(id, name, address, phone, email, major, minor);
+            for (Student alunoEx : students){ //aluno existente
+                if(a.getId().equals(alunoEx.getId())){
+                    throw new Exception("ALuno já existe");
+                } else{
+                    students.add(a);
+                }
             }
-        } return a; 
+        return a; 
     }
     
 } //fim da classe university
