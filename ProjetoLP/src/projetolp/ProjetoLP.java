@@ -23,20 +23,18 @@ public class ProjetoLP {
         Student a = new Student(b, "Gabriel", "Rua dos bobos N°0", "666", "gabriel@gmail.com");
         Student c = new Student(b, "Paulo", "Rua dos bobos N°0", "666", "gabriel@gmail.com");
         
-        a.setId(31462669l);
-        System.out.println(a.getId());
-        
-        a.setAddress("Rua dos macacos selvagens");
-        a.setEmail("gabrielrdardengo@hotmail.com");
-        a.setPhone("36816766");
-        
         System.out.println(a.toString());
         System.out.println(c.toString());
         
         Student alunopos = new PostGraduateStudent (41331467l, "Renata", "Rua da salvação", "43111779", "renatacantarin@hotmail.com", "The Maine", "Gabriel");
         System.out.println(alunopos.toString());
-        System.out.println(alunopos.getName());
+        /*
+        a.setId(31462669l);
+        System.out.println(a.getId());
         
+        a.setAddress("Rua dos macacos selvagens");
+        a.setEmail("gabrielrdardengo@hotmail.com");
+        a.setPhone("36816766"); */  
         
     }
     
