@@ -13,8 +13,8 @@ public class PostGraduateStudent extends Student{
     private String thesisTitle;
     private String supervisor;
     
-    public PostGraduateStudent(Long id, String name, String address, String phone, String email, String thesisTitle, String supervisor) {
-        super(id, name, address, phone, email);
+    public PostGraduateStudent(Long id, String name, String address, String phone, String email, Course curso, String thesisTitle, String supervisor) {
+        super(id, name, address, phone, email, curso);
         this.thesisTitle = thesisTitle;
         this.supervisor = supervisor;
     }
@@ -37,7 +37,7 @@ public class PostGraduateStudent extends Student{
     
     @Override
     public String toString() {
-        return super.toString()+"thesisTitle = " + thesisTitle + "\n Supervisor = " + supervisor;
+        return super.toString()+"\n thesisTitle = " + thesisTitle + "\n Supervisor = " + supervisor;
     }
     
 }

@@ -23,6 +23,10 @@ public class Course {
         this.numCredits = numCredits;
         this.maxStudents = maxStudents;
     }
+    
+    public Course(String nome){
+        this.title = nome;
+    }
 
     public String getCode() {
         return code;

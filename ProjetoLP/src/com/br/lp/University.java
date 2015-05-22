@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author 31462669
  */
-public class University {
+public class University { //problema no 
 
     private String name;
     private ArrayList<Course> courses;
@@ -49,8 +49,8 @@ public class University {
         return curso;
     } 
     
-    public UnderGraduateStudent addUnderGraduateStudent (Long id, String name, String address, String phone, String email, String major, String minor) throws Exception {
-        UnderGraduateStudent a = new UnderGraduateStudent(id, name, address, phone, email, major, minor);
+    public UnderGraduateStudent addUnderGraduateStudent (Long id, String name, String address, String phone, String email, Course curso, String major, String minor) throws Exception {
+        UnderGraduateStudent a = new UnderGraduateStudent(id, name, address, phone, email, curso, major, minor);
             for (Student alunoEx : students){ //aluno existente
                 if(a.getId().equals(alunoEx.getId())){
                     throw new Exception("ALuno já existe");
@@ -81,8 +81,8 @@ public class University {
         return estudante;  
     }
     
-    public PostGraduateStudent addPostGraduateStudent (Long id, String name, String address, String phone, String email, String thesisTitle, String supervisor) throws Exception {
-        PostGraduateStudent a = new PostGraduateStudent(id, name, address, phone, email, thesisTitle, supervisor);
+    public PostGraduateStudent addPostGraduateStudent (Long id, String name, String address, String phone, String email, Course curso, String thesisTitle, String supervisor) throws Exception {
+        PostGraduateStudent a = new PostGraduateStudent(id, name, address, phone, email,curso, thesisTitle, supervisor);
             for (Student alunoEx : students){ //aluno existente
                 if(a.getId().equals(alunoEx.getId())){
                     throw new Exception("ALuno já existe");
@@ -136,17 +136,18 @@ public class University {
         return estudante;
     }
     
-    public Courses getCourses(Long studentId)throws Exception { //não terminei de fazer
-        Courses cursos = null;
-        
-        for(int i = 0; i < courses.size(); i++){
-            if(studentId.equals(courses.get(i).getStudentId())){
-                cursos = 
+    
+    public Course getCourses(Long studentId)throws Exception { 
+        Course curso = null;
+        for (Student student : students) {
+            if(student.getId() == studentId){
+                curso = student.getCursos();
             }
         }
+        return curso;
     }
     
-    
+   
 
 } //fim da classe university
 

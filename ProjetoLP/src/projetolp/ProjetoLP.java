@@ -5,6 +5,7 @@
  */
 package projetolp;
 
+import com.br.lp.Course;
 import com.br.lp.PostGraduateStudent;
 import com.br.lp.Student;
 import com.br.lp.University;
@@ -20,14 +21,16 @@ public class ProjetoLP {
      */
     public static void main(String[] args) {
         Long b = 31448471l;
-        Student a = new Student(b, "Gabriel", "Rua dos bobos N°0", "666", "gabriel@gmail.com");
-        Student c = new Student(b, "Paulo", "Rua dos bobos N°0", "666", "gabriel@gmail.com");
+        Course a = new Course("Java");
+        Student s = new Student(b, "Gabriel", "Rua dos bobos N°0", "666", "gabriel@gmail.com", a);
+        Student c = new Student(b, "Paulo", "Rua dos bobos N°0", "666", "gabriel@gmail.com", a);
         
         System.out.println(a.toString());
         System.out.println(c.toString());
         
-        Student alunopos = new PostGraduateStudent (41331467l, "Renata", "Rua da salvação", "43111779", "renatacantarin@hotmail.com", "The Maine", "Gabriel");
+        Student alunopos = new PostGraduateStudent (41331467l, "Renata", "Rua da salvação", "43111779", "renatacantarin@hotmail.com",a, "The Maine", "Gabriel");
         System.out.println(alunopos.toString());
+        
         /*
         a.setId(31462669l);
         System.out.println(a.getId());

@@ -5,6 +5,8 @@
  */
 package com.br.lp;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 31462669
@@ -16,15 +18,20 @@ public class Student {
     private String address;
     private String phone;
     private String email;
+    private Course cursos;
 
-    public Student(Long id, String name, String address, String phone, String email) {
+    public Student(Long id, String name, String address, String phone, String email, Course curso) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.email = email;
+        this.cursos = curso;
     }
 
+    
+
+    
     public Student() {
 
     }
@@ -74,6 +81,15 @@ public class Student {
         this.email = email;
     }
 
+    public Course getCursos() {
+        return cursos;
+    }
+
+    public void setCursos(Course cursos) {
+        this.cursos = cursos;
+    }
+    
+    
     @Override
     public String toString() {
         return "ID = " + id + "\n Name = " + name + "\n Address = " + address + "\n Phone = " + phone + "\n Email = " + email;     
